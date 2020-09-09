@@ -1,4 +1,4 @@
-// Create functions to perform maths
+// Create operator functions to perform maths
 
 // Add
 const add = (num1, num2) => num1 + num2;
@@ -15,4 +15,6 @@ const multiply = (num1, num2) => num1 * num2;
 
 const divide = (num1, num2) => num1 / num2;
 
-//Create operate function 
+//Create operate function to call operator functions
+
+const operate = (operator, num1 , num2) => operator(num1, num2);
