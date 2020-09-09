@@ -1,0 +1,22 @@
+/*
+  ========================================
+  Custom styles
+  ========================================
+*/
+
+#calc-body {
+    text-align: center;
+    border: 5px solid black;
+    border-radius: 15px;
+    height: 655px;
+    width: 380px;
+}
+
+#display {
+    text-align: center;
+    border: 1px solid black;
+    height: 25%;
+    width: 80%;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
