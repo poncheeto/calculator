@@ -37,6 +37,35 @@
     display: inline-grid;
     width: 85%;
     height: 300px;
-    grid: repeat(5, 2fr) / repeat(4, 2fr);
+    grid-template-areas: 'top-row top-row top-row ops'
+                         'main    main    main    ops'
+                         'main    main    main    ops'
+                         'main    main    main    ops'
+                         'main    main    main    ops'
+                         'main    main    main    .';
+    grid-template-rows: repeat(5, 2fr);
+    grid-template-columns: repeat(4, 2fr);
     gap: 20px 20px;
+}
+
+#grid-container > #top-row {
+    grid-area: top-row;
+    display: inline-grid;
+    grid: repeat(1, 2fr) / repeat(3, 2fr);
+    gap: 20px 20px;
+}
+
+#grid-container > #ops {
+    grid-area: ops;
+    display: inline-grid;
+    grid: repeat(4, 2fr) / repeat(1, 2fr);
+    gap: 20px 20px;
+}
+
+#grid-container > #main {
+    grid-area: main;
+    display: inline-grid;
+    grid: repeat(4, 2fr) / repeat(3, 2fr);
+    gap: 20px 20px;
+
 }
