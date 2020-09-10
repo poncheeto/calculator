@@ -5,6 +5,7 @@
 */
 
 #calc-body {
+    background-color: gainsboro;
     text-align: center;
     border: 5px solid black;
     border-radius: 15px;
@@ -14,9 +15,12 @@
 
 #display {
     display: inline-grid;
-    border: 1px solid black;
+    background-color: silver;
+    border: solid rgb(70, 68, 68);
+    border-width: 7px 20px 20px 20px;
+    border-radius: 5px;
     height: 25%;
-    width: 85%;
+    width: 75%;
     margin: 100px auto 20px auto;
 }
 
@@ -24,35 +28,41 @@
     display: inline-grid;
     align-self: end;
     justify-self: end;
-    height: 30%;
+    height: 42%;
 }
 
 #text {
     font-family: monospace;
-    font-size: 45px;
-
+    font-size: 70px;
+    overflow: hidden;
 }
 
 #grid-container {
     display: inline-grid;
     width: 85%;
     height: 300px;
-    grid-template-areas: 'main    main    main    main'
-                         'main    main    main    main'
-                         'main    main    main    main'
-                         'main    main    main    plus'
-                         'main    main    main    plus';
 }
 
 #grid-container > #main {
-    grid-area: main;
     display: inline-grid;
     grid: repeat(5, 2fr) / repeat(4, 2fr);
     gap: 20px 20px;
-
-
 }
 
-#main > #plus {
-    background-color: cyan;
+.button {
+    font-family:monospace;
+    font-size: 24px;
+    color: white;
+    background-color: rgb(34, 36, 42);
+    border: 1px sold black;
+    border-radius: 5px 5px 12px 12px;
+}
+
+#clear {
+    background-color: rgb(129, 65, 65);
+    font-size: 18px;
+}
+
+#plus {
+    height: 250%;
 }
