@@ -1,3 +1,7 @@
+//Reference items to be mainpulated within DOM
+const buttons = document.querySelector('button'); 
+
+
 // Create operator functions to perform maths
 
 // Add
@@ -18,3 +22,7 @@ const divide = (num1, num2) => num1 / num2;
 //Create operate function to call operator functions
 
 const operate = (operator, num1 , num2) => operator(num1, num2);
+
+// Create function to populate display
+const getInput = ()
+
