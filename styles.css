@@ -14,7 +14,8 @@
 }
 
 #display {
-    display: inline-grid;
+    display: flex;
+    flex-flow: row wrap;
     background-color: silver;
     border: solid rgb(70, 68, 68);
     border-width: 7px 20px 20px 20px;
@@ -25,16 +26,18 @@
 }
 
 #text-container {
-    display: inline-grid;
-    align-self: end;
-    justify-self: end;
-    height: 42%;
+    display: inline-flex;
+    flex-flow: row-reverse;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
 }
 
 #text {
     font-family: monospace;
     font-size: 70px;
-    overflow: hidden;
+    margin-bottom: -15px;
+    overflow-wrap: anywhere;
 }
 
 #grid-container {
@@ -54,7 +57,7 @@
     font-size: 24px;
     color: white;
     background-color: rgb(34, 36, 42);
-    border: 1px sold black;
+    border: none;
     border-radius: 5px 5px 12px 12px;
 }
 
