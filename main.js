@@ -1,6 +1,7 @@
 //Reference items to be mainpulated within DOM
-const buttons = document.querySelector('button'); 
-
+const display = document.querySelector('#text');
+const buttons = document.querySelectorAll('button'); 
+const clearBtn = document.querySelector('#clear');
 
 // Create operator functions to perform maths
 
