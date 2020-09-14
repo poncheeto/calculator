@@ -1,6 +1,6 @@
 //Reference items to be mainpulated within DOM
 const display = document.querySelector('#text');
-const buttons = document.querySelectorAll('button'); 
+const buttons = document.querySelectorAll('.button'); 
 const clearBtn = document.querySelector('#clear');
 
 // Create operator functions to perform maths
@@ -25,5 +25,15 @@ const divide = (num1, num2) => num1 / num2;
 const operate = (operator, num1 , num2) => operator(num1, num2);
 
 // Create function to populate display
-const getInput = ()
+const displayInput = (e) => {
+    const input = document.createElement('p');
+    input.classList.add('userInput');
+    display.appendChild(input);
+    console.log(e);
+};
+
+//Event listener for number/operator button presses
+buttons.forEach((button) => {
+    button.addEventListener('click', displayInput)
+    });
 
