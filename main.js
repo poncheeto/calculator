@@ -28,12 +28,11 @@ const operate = (operator, num1 , num2) => operator(num1, num2);
 const displayInput = (e) => {
     const input = document.createElement('p');
     input.classList.add('userInput');
+    input.textContent='test';
     display.appendChild(input);
-    console.log(e);
 };
 
 //Event listener for number/operator button presses
 buttons.forEach((button) => {
     button.addEventListener('click', displayInput)
     });
-

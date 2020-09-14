@@ -33,7 +33,7 @@
     width: 100%;
 }
 
-#text {
+.userInput {
     font-family: monospace;
     font-size: 70px;
     margin-bottom: -15px;
