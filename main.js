@@ -28,7 +28,7 @@ const operate = (operator, num1 , num2) => operator(num1, num2);
 const displayInput = (e) => {
     const input = document.createElement('p');
     input.classList.add('userInput');
-    input.textContent='test';
+    input.textContent='9';
     display.appendChild(input);
 };
 
