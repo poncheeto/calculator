@@ -33,11 +33,10 @@
 }
 
 #text {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: -25px;
-    height: 100%;
-    overflow: hidden;
+    font-family: monospace;
+    font-size: 100px;
+    height: 100px;
+    
 }
 
 .userInput {
