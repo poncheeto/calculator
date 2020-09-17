@@ -26,10 +26,6 @@ const divide = (num1, num2) => num1 / num2;
 
 const operate = (operator, num1, num2) => operator(num1, num2);
 
-// Create function to populate display
-const displayInput = (e) => {
-};
-
 //Event listener for number/operator button presses
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -42,7 +38,8 @@ buttons.forEach((button) => {
                         counter++;
                         break;
                     case counter == 5:
-                        display.textContent = display.textContent.substring(1) + button.textContent;
+                        counter = counter;
+                        display.textContent += button.textContent;
                         value += button.textContent;
                         break;
                     default:
@@ -50,6 +47,9 @@ buttons.forEach((button) => {
                         value += button.textContent;
                         counter++;
                 }
+                break;
+            case 'op':
+                display.textContent += button.textContent;
         }
 
     })
