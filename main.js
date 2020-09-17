@@ -41,9 +41,13 @@ buttons.forEach((button) => {
                         value = button.textContent;
                         counter++;
                         break;
+                    case counter == 5:
+                        display.textContent = display.textContent.substring(1) + button.textContent;
+                        value += button.textContent;
+                        break;
                     default:
                         display.textContent += button.textContent;
-                        value = button.textContent;
+                        value += button.textContent;
                         counter++;
                 }
         }
