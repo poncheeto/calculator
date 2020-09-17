@@ -34,16 +34,8 @@
 
 #text {
     font-family: monospace;
-    font-size: 100px;
-    height: 100px;
-    
-}
-
-.userInput {
-    display: inline;
-    font-family: monospace;
-    font-size: 70px;
-    overflow-wrap: anywhere;
+    font-size: 95px;
+    height: 95px;
 }
 
 #grid-container {
