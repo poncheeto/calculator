@@ -32,7 +32,7 @@ const displayInput = (e) => {
 //Event listener for number/operator button presses
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        switch (button.className) {
+        switch (button.id) {
             case 'button':
                 display.textContent = button.textContent;
                 value = button.textContent;
