@@ -3,6 +3,7 @@ const display = document.querySelector('#text');
 const buttons = document.querySelectorAll('.button');
 const clearBtn = document.querySelector('#clear');
 let value = '';
+let counter = 0;
 
 // Create operator functions to perform maths
 
@@ -34,9 +35,18 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         switch (button.id) {
             case 'button':
-                display.textContent = button.textContent;
-                value = button.textContent;
+                switch (true) {
+                    case counter == 0:
+                        display.textContent = button.textContent;
+                        value = button.textContent;
+                        counter++;
+                        break;
+                    default:
+                        display.textContent += button.textContent;
+                        value = button.textContent;
+                        counter++;
+                }
         }
-        
+
     })
 });
