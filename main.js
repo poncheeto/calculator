@@ -47,8 +47,31 @@ buttons.forEach((button) => {
                         value = button.textContent;
                 }
                 break;
+
             case 'op':
-                display.textContent += button.textContent;
+            case 'plus':
+                // Create variables to store numbers and operation
+                let num1, num2, operator;
+
+                num1 = value;
+                switch (true) {
+                    case button.textContent == '&plus':
+                        operator = 'add';
+                        return operator;
+                    case button.textContent == '&minus':
+                        operator = 'subtract';
+                        return operator;
+                    case button.textContent == '&times':
+                        operator = 'multiply';
+                        return operator;
+                    case button.textContent == '&divide':
+                        operator = '&divide';
+                        
+                    }
+                    num2 = 3;
+            // case 'equal':
+            //     operate(operator, num1, num2);
+            //     console.log(operate);
         }
 
     })
