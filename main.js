@@ -37,12 +37,12 @@ buttons.forEach((button) => {
                         value = button.textContent;
                         counter++;
                         break;
-                    case counter >= 1 && counter != 5:
+                    case counter >= 1 && counter != 9:
                         let fullDisplay = display.textContent += button.textContent;
                         value += button.textContent;
                         counter++
                         break;
-                    case counter == 5 && counter >= 1:
+                    case counter == 9 && counter >= 1:
                         display.textContent = fullDisplay;
                         value = button.textContent;
                 }
