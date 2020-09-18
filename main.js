@@ -37,15 +37,14 @@ buttons.forEach((button) => {
                         value = button.textContent;
                         counter++;
                         break;
-                    case counter == 5:
-                        counter = counter;
-                        display.textContent += button.textContent;
+                    case counter >= 1 && counter != 5:
+                        let fullDisplay = display.textContent += button.textContent;
                         value += button.textContent;
+                        counter++
                         break;
-                    default:
-                        display.textContent += button.textContent;
-                        value += button.textContent;
-                        counter++;
+                    case counter == 5 && counter >= 1:
+                        display.textContent = fullDisplay;
+                        value = button.textContent;
                 }
                 break;
             case 'op':
