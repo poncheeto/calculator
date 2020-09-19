@@ -28,7 +28,7 @@ const operate = (operator, num1, num2) => operator(num1, num2);
 
 //Event listener for number/operator button presses
 buttons.forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (e) => {
         switch (button.id) {
             case 'button':
                 switch (true) {
@@ -45,33 +45,24 @@ buttons.forEach((button) => {
                     case counter == 9 && counter >= 1:
                         display.textContent = fullDisplay;
                         value = button.textContent;
+                    case 
                 }
                 break;
 
-            case 'op':
+            let num1, num2;
+            num1 = value;
+            case 'divide':
+                operator = 'divide';
+                return operator;
+            case 'times':
+                operator = 'multiply';
+                return operator;
+            case 'minus':
+                operator = 'subtract';
+                return operator;
             case 'plus':
-                // Create variables to store numbers and operation
-                let num1, num2, operator;
-
-                num1 = value;
-                switch (true) {
-                    case button.textContent == '&plus':
-                        operator = 'add';
-                        return operator;
-                    case button.textContent == '&minus':
-                        operator = 'subtract';
-                        return operator;
-                    case button.textContent == '&times':
-                        operator = 'multiply';
-                        return operator;
-                    case button.textContent == '&divide':
-                        operator = '&divide';
-                        
-                    }
-                    num2 = 3;
-            // case 'equal':
-            //     operate(operator, num1, num2);
-            //     console.log(operate);
+                operator = 'add';
+                return operator;
         }
 
     })
