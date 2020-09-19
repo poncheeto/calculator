@@ -45,13 +45,14 @@ buttons.forEach((button) => {
                     case counter == 9 && counter >= 1:
                         display.textContent = fullDisplay;
                         value = button.textContent;
-                    case 
+                        break;
                 }
                 break;
 
             let num1, num2;
             num1 = value;
             case 'divide':
+                display.textContent = button.textContent;
                 operator = 'divide';
                 return operator;
             case 'times':
