@@ -66,16 +66,16 @@ const enterDigit = (digit) => {
         case displayValue === 0 || displayValue === undefined:
             displayValue = digit;
             break;
-            case digit === '.':
-                case !displayValue.indexOf('.'):
-                    displayValue += digit;
-                    break;
-                    default:
-                        displayValue += digit;
-                    }
-                    updateDisplay();
-                }
-                
+        case digit === '.':
+        case !displayValue.indexOf('.'):
+            displayValue += digit;
+            break;
+        default:
+            displayValue += digit;
+    }
+    updateDisplay();
+}
+
 // Create function to enter operators
 const enterOperator = (newOperation) => {
     if (clickFirstOperand) {
@@ -90,11 +90,10 @@ const enterOperator = (newOperation) => {
 
 // Create function for equals button press
 const enterEquals = () => {
-    switch (true) {
-        case operation && initialValue:
-            displayValue = operate(operation, initialValue, displayValue);
-            clickFirstOperand = false;
-            updateDisplay();
+    if (operation && initialValue) {
+        displayValue = operate(operation, initialValue, displayValue);
+        clickFirstOperand = false;
+        updateDisplay();
     }
 }
 
@@ -137,7 +136,9 @@ buttons.forEach((button) => {
                 clear();
                 break;
             case 'MU':
-                //TODO
+            //TODO
+            case 'percent':
+            //TODO
         }
     })
 });
