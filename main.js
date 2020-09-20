@@ -2,9 +2,9 @@
 const display = document.querySelector('#text');
 const buttons = document.querySelectorAll('.button');
 const clearBtn = document.querySelector('#clear');
-let result = '';
+
 let displayValue = 0;
-let initalValue = null;
+let initialValue = null;
 let operation = null;
 let counter = 0;
 let clickFirstOperand = false;
@@ -30,7 +30,7 @@ const divide = (num1, num2) => num1 / num2;
 
 const operate = (operator, num1, num2) => {
     num1 = Number(num1);
-    num2 = Number (num2);
+    num2 = Number(num2);
     switch (operator) {
         case 'add':
             return add(num1, num2);
@@ -52,12 +52,11 @@ const updateDisplay = () => {
             counter++;
             break;
         case counter >= 1 && counter != 9:
-            let fullDisplay = display.textContent = displayValue;
+            fullDisplay = display.textContent = displayValue;
             counter++
             break;
         case counter == 9 && counter >= 1:
             display.textContent = fullDisplay;
-            break;
     }
 }
 
@@ -67,24 +66,24 @@ const enterDigit = (digit) => {
         case displayValue === 0 || displayValue === undefined:
             displayValue = digit;
             break;
-        case digit === '.':
-        case !displayValue.indexOf('.'):
-            displayValue += digit;
-            break;
-        default:
-            displayValue += digit;
-    }
-    updateDisplay();
-}
-
+            case digit === '.':
+                case !displayValue.indexOf('.'):
+                    displayValue += digit;
+                    break;
+                    default:
+                        displayValue += digit;
+                    }
+                    updateDisplay();
+                }
+                
 // Create function to enter operators
 const enterOperator = (newOperation) => {
     if (clickFirstOperand) {
-        displayValue = operate(operation, initalValue, displayValue);
-        updateDisplay;
+        displayValue = operate(operation, initialValue, displayValue);
+        updateDisplay();
     }
     operation = newOperation;
-    intitalValue = displayValue;
+    initialValue = displayValue;
     clickFirstOperand = true;
     displayValue = 0;
 }
@@ -93,39 +92,52 @@ const enterOperator = (newOperation) => {
 const enterEquals = () => {
     switch (true) {
         case operation && initialValue:
-            displayValue = operate(operation, initalValue, displayValue);
+            displayValue = operate(operation, initialValue, displayValue);
             clickFirstOperand = false;
             updateDisplay();
     }
 }
 
 // Create function for the clear button
-
 const clear = () => {
-
+    displayValue = 0;
+    operation = null;
+    initialValue = null;
+    hasFirstOperand = false;
+    updateDisplay();
 }
 
 //Event listener for number/operator button presses
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
         switch (e.target.id) {
-            case 'button':
-                enterDigit(e.target.innerHTML);
+            case '7':
+            case '8':
+            case '9':
+            case '4':
+            case '5':
+            case '6':
+            case '1':
+            case '2':
+            case '3':
+            case '0':
+            case '.':
+                enterDigit(e.target.id);
                 break;
-            case 'divide':  
+            case 'divide':
             case 'multiply':
             case 'subtract':
             case 'add':
-                console.log(e.target);
+                enterOperator(e.target.id)
                 break;
             case 'equal':
                 enterEquals();
                 break;
             case 'clear':
-                
+                clear();
                 break;
             case 'MU':
+                //TODO
         }
-
     })
 });
