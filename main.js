@@ -4,6 +4,8 @@ const buttons = document.querySelectorAll('.button');
 const clearBtn = document.querySelector('#clear');
 let result = '';
 let displayValue = 0;
+let initalValue = null;
+let operation = null;
 let counter = 0;
 let clickFirstOperand = false;
 
@@ -26,7 +28,20 @@ const divide = (num1, num2) => num1 / num2;
 
 //Create operate function to call operator functions
 
-const operate = (operator, num1, num2) => operator(num1, num2);
+const operate = (operator, num1, num2) => {
+    num1 = Number(num1);
+    num2 = Number (num2);
+    switch (operator) {
+        case 'add':
+            return add(num1, num2);
+        case 'subtract':
+            return subtract(num1, num2);
+        case 'multiply':
+            return multiply(num1, num2);
+        case 'divide':
+            return divide(num1, num2);
+    }
+};
 
 // Create fucntion to update display
 const updateDisplay = () => {
@@ -74,6 +89,21 @@ const enterOperator = (newOperation) => {
     displayValue = 0;
 }
 
+// Create function for equals button press
+const enterEquals = () => {
+    switch (true) {
+        case operation && initialValue:
+            displayValue = operate(operation, initalValue, displayValue);
+            clickFirstOperand = false;
+            updateDisplay();
+    }
+}
+
+// Create function for the clear button
+
+const clear = () => {
+
+}
 
 //Event listener for number/operator button presses
 buttons.forEach((button) => {
@@ -86,9 +116,14 @@ buttons.forEach((button) => {
             case 'multiply':
             case 'subtract':
             case 'add':
-                enterOperator(e.target.id);
+                console.log(e.target);
                 break;
             case 'equal':
+                enterEquals();
+                break;
+            case 'clear':
+                
+                break;
             case 'MU':
         }
 
