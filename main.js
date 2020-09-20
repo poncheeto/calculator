@@ -5,6 +5,7 @@ const clearBtn = document.querySelector('#clear');
 let result = '';
 let displayValue = 0;
 let counter = 0;
+let clickFirstOperand = false;
 
 // Create operator functions to perform maths
 
@@ -52,26 +53,44 @@ const enterDigit = (digit) => {
             displayValue = digit;
             break;
         case digit === '.':
-            case !displayValue.indexOf('.'):
-                displayValue += digit;
-                break;
-            default:
-                displayValue += digit;
+        case !displayValue.indexOf('.'):
+            displayValue += digit;
+            break;
+        default:
+            displayValue += digit;
     }
     updateDisplay();
-} 
+}
+
+// Create function to enter operators
+const enterOperator = (newOperation) => {
+    if (clickFirstOperand) {
+        displayValue = operate(operation, initalValue, displayValue);
+        updateDisplay;
+    }
+    operation = newOperation;
+    intitalValue = displayValue;
+    clickFirstOperand = true;
+    displayValue = 0;
+}
+
+
 //Event listener for number/operator button presses
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
         switch (e.target.id) {
             case 'button':
                 enterDigit(e.target.innerHTML);
-                case 'divide':
-            case 'times':
-                case 'minus':
-            case 'plus':
-                case 'equal':
+                break;
+            case 'divide':  
+            case 'multiply':
+            case 'subtract':
+            case 'add':
+                enterOperator(e.target.id);
+                break;
+            case 'equal':
+            case 'MU':
         }
-        
+
     })
 });
