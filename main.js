@@ -2,7 +2,8 @@
 const display = document.querySelector('#text');
 const buttons = document.querySelectorAll('.button');
 const clearBtn = document.querySelector('#clear');
-let value = '';
+let result = '';
+let displayValue = 0;
 let counter = 0;
 
 // Create operator functions to perform maths
@@ -26,45 +27,51 @@ const divide = (num1, num2) => num1 / num2;
 
 const operate = (operator, num1, num2) => operator(num1, num2);
 
+// Create fucntion to update display
+const updateDisplay = () => {
+    //display.textContent = displayValue;
+    switch (true) {
+        case counter == 0:
+            display.textContent = displayValue;
+            counter++;
+            break;
+        case counter >= 1 && counter != 9:
+            let fullDisplay = display.textContent = displayValue;
+            counter++
+            break;
+        case counter == 9 && counter >= 1:
+            display.textContent = fullDisplay;
+            break;
+    }
+}
+
+// Create function to enter digit selections
+const enterDigit = (digit) => {
+    switch (true) {
+        case displayValue === 0 || displayValue === undefined:
+            displayValue = digit;
+            break;
+        case digit === '.':
+            case !displayValue.indexOf('.'):
+                displayValue += digit;
+                break;
+            default:
+                displayValue += digit;
+    }
+    updateDisplay();
+} 
 //Event listener for number/operator button presses
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        switch (button.id) {
+        switch (e.target.id) {
             case 'button':
-                switch (true) {
-                    case counter == 0:
-                        display.textContent = button.textContent;
-                        value = button.textContent;
-                        counter++;
-                        break;
-                    case counter >= 1 && counter != 9:
-                        let fullDisplay = display.textContent += button.textContent;
-                        value += button.textContent;
-                        counter++
-                        break;
-                    case counter == 9 && counter >= 1:
-                        display.textContent = fullDisplay;
-                        value = button.textContent;
-                        break;
-                }
-                break;
-
-            let num1, num2;
-            num1 = value;
-            case 'divide':
-                display.textContent = button.textContent;
-                operator = 'divide';
-                return operator;
+                enterDigit(e.target.innerHTML);
+                case 'divide':
             case 'times':
-                operator = 'multiply';
-                return operator;
-            case 'minus':
-                operator = 'subtract';
-                return operator;
+                case 'minus':
             case 'plus':
-                operator = 'add';
-                return operator;
+                case 'equal':
         }
-
+        
     })
 });
