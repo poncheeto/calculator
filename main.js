@@ -39,10 +39,9 @@ const operate = (operator, num1, num2) => {
         case 'multiply':
             return multiply(num1, num2);
         case 'divide':
-            case num2 == 0:
+            if (num2 === 0) {
                 return 'ERROR';
-            default: 
-                divide(num1, num2);
+            } else return divide(num1, num2);
     }
 };
 
